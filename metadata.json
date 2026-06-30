@@ -1,0 +1,6 @@
+{
+  "name": "Vedah Vital",
+  "description": "Vedah Vital is a premium organic wellness platform based on Ayurvedic health, backed by transparency and lab science.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
