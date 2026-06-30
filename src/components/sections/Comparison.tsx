@@ -217,83 +217,85 @@ export const Comparison: React.FC = () => {
               </span>
               
               {/* Visual Glass Chart */}
-              <div className="w-full bg-white border border-[rgba(10,25,47,0.08)] rounded-2xl p-5 flex flex-col gap-4 relative shadow-sm">
+              <div className="w-full bg-white border border-[rgba(10,25,47,0.08)] rounded-2xl p-4 sm:p-5 flex flex-col gap-4 relative shadow-sm">
                 
-                {/* Grid Lines */}
-                <div className="absolute inset-x-5 top-[58px] border-t border-dashed border-gray-100" />
-                <div className="absolute inset-x-5 top-[92px] border-t border-dashed border-gray-100" />
-                <div className="absolute inset-x-5 top-[126px] border-t border-dashed border-gray-100" />
-
                 {/* Chart Title / Y-Axis Label */}
                 <div className="text-[10px] sm:text-xs font-sans font-bold tracking-widest text-gray-400 uppercase text-left">
                   Withaferin A Concentration (%)
                 </div>
                 
-                {/* Chart Core Grid */}
-                <div className="h-36 flex items-end justify-around gap-2 pt-2 border-b border-gray-200 relative">
-                  
-                  {/* Grid Y-Axis Markers */}
-                  <div className="absolute left-0 top-0 bottom-0 flex flex-col justify-between text-[10px] sm:text-xs font-sans text-gray-400 select-none">
+                {/* Chart Core with explicit Y-axis on left */}
+                <div className="flex gap-2 sm:gap-4 items-end">
+                  {/* Y-Axis Label Column */}
+                  <div className="h-36 flex flex-col justify-between text-[10px] sm:text-xs font-sans text-gray-400 select-none pb-1 shrink-0 w-8 text-right pr-1">
                     <span>3.0%</span>
                     <span>2.0%</span>
                     <span>1.0%</span>
                     <span>0.0%</span>
                   </div>
 
-                  {/* Bar 1: KSM-66 (<= 0.1%) */}
-                  <div className="flex flex-col items-center gap-1.5 z-10 w-[35%]">
-                    <span className="text-[11px] sm:text-xs font-sans font-bold text-emerald-600">≤ 0.1%</span>
-                    <div className="w-full h-28 flex items-end justify-center">
-                      <motion.div 
-                        initial={{ height: 0 }}
-                        whileInView={{ height: '3.3%' }} // 0.1% out of 3% max
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "easeOut" }}
-                        className="w-full bg-gradient-to-t from-emerald-600 to-emerald-400 rounded-t-md shadow-[0_2px_8px_rgba(16,185,129,0.3)]"
-                      />
-                    </div>
-                    <div className="flex items-center gap-1 mt-1 justify-center">
-                      <div className="w-4 h-4 rounded-full overflow-hidden border border-emerald-500/20 shadow-sm shrink-0">
-                        <img 
-                          src="/images/ashwagandha_plant_root.webp" 
-                          alt="Root" 
-                          className="w-full h-full object-cover" 
-                          loading="lazy"
+                  {/* Chart Bar Area */}
+                  <div className="h-36 flex-1 flex items-end justify-around gap-2 pt-2 border-b border-l border-gray-200/60 relative">
+                    {/* Grid Lines inside Bar Area */}
+                    <div className="absolute inset-x-0 top-1/4 border-t border-dashed border-gray-100/60 pointer-events-none" />
+                    <div className="absolute inset-x-0 top-2/4 border-t border-dashed border-gray-100/60 pointer-events-none" />
+                    <div className="absolute inset-x-0 top-3/4 border-t border-dashed border-gray-100/60 pointer-events-none" />
+
+                    {/* Bar 1: KSM-66 (<= 0.1%) */}
+                    <div className="flex flex-col items-center gap-1 z-10 w-[45%]">
+                      <span className="text-[10px] sm:text-xs font-sans font-bold text-emerald-600">≤ 0.1%</span>
+                      <div className="w-full h-24 flex items-end justify-center">
+                        <motion.div 
+                          initial={{ height: 0 }}
+                          whileInView={{ height: '3.3%' }} // 0.1% out of 3% max
+                          viewport={{ once: true }}
+                          transition={{ duration: 1, ease: "easeOut" }}
+                          className="w-full max-w-[40px] sm:max-w-[48px] bg-gradient-to-t from-emerald-600 to-emerald-400 rounded-t-md shadow-[0_2px_8px_rgba(16,185,129,0.3)]"
                         />
                       </div>
-                      <span className="text-[10px] sm:text-xs font-sans font-bold text-[var(--color-heading)] tracking-wide uppercase">KSM-66</span>
+                      <div className="flex items-center gap-1 mt-1 justify-center flex-wrap sm:flex-nowrap">
+                        <div className="w-4 h-4 rounded-full overflow-hidden border border-emerald-500/20 shadow-sm shrink-0">
+                          <img 
+                            src="/images/ashwagandha_plant_root.webp" 
+                            alt="Root" 
+                            className="w-full h-full object-cover" 
+                            loading="lazy"
+                          />
+                        </div>
+                        <span className="text-[9px] sm:text-xs font-sans font-bold text-[var(--color-heading)] tracking-wide uppercase whitespace-nowrap">KSM-66</span>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Bar 2: Whole Body Powder (2.5%) */}
-                  <div className="flex flex-col items-center gap-1.5 z-10 w-[35%]">
-                    <span className="text-[11px] sm:text-xs font-sans font-bold text-red-600">2.5%</span>
-                    <div className="w-full h-28 flex items-end justify-center">
-                      <motion.div 
-                        initial={{ height: 0 }}
-                        whileInView={{ height: '83.3%' }} // 2.5% out of 3% max
-                        viewport={{ once: true }}
-                        transition={{ duration: 1.2, ease: "easeOut" }}
-                        className="w-full bg-gradient-to-t from-red-600 to-red-400 rounded-t-md shadow-[0_2px_8px_rgba(220,38,38,0.3)]"
-                      />
-                    </div>
-                    <div className="flex items-center gap-1 mt-1 justify-center">
-                      <div className="w-4 h-4 rounded-full overflow-hidden border border-red-500/20 shadow-sm shrink-0">
-                        <img 
-                          src="/images/ashwagandha_leaves.webp" 
-                          alt="Leaves" 
-                          className="w-full h-full object-cover" 
-                          loading="lazy"
+                    {/* Bar 2: Whole Body Powder (2.5%) */}
+                    <div className="flex flex-col items-center gap-1 z-10 w-[45%]">
+                      <span className="text-[10px] sm:text-xs font-sans font-bold text-red-600">2.5%</span>
+                      <div className="w-full h-24 flex items-end justify-center">
+                        <motion.div 
+                          initial={{ height: 0 }}
+                          whileInView={{ height: '83.3%' }} // 2.5% out of 3% max
+                          viewport={{ once: true }}
+                          transition={{ duration: 1.2, ease: "easeOut" }}
+                          className="w-full max-w-[40px] sm:max-w-[48px] bg-gradient-to-t from-red-600 to-red-400 rounded-t-md shadow-[0_2px_8px_rgba(220,38,38,0.3)]"
                         />
                       </div>
-                      <span className="text-[10px] sm:text-xs font-sans font-bold text-red-600 tracking-wide uppercase">Whole Body</span>
+                      <div className="flex items-center gap-1 mt-1 justify-center flex-wrap sm:flex-nowrap">
+                        <div className="w-4 h-4 rounded-full overflow-hidden border border-red-500/20 shadow-sm shrink-0">
+                          <img 
+                            src="/images/ashwagandha_leaves.webp" 
+                            alt="Leaves" 
+                            className="w-full h-full object-cover" 
+                            loading="lazy"
+                          />
+                        </div>
+                        <span className="text-[9px] sm:text-xs font-sans font-bold text-red-600 tracking-wide uppercase whitespace-nowrap">Whole Body</span>
+                      </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
 
                 {/* Footnote */}
-                <p className="text-[11px] sm:text-xs font-sans text-gray-400 text-left leading-normal italic">
+                <p className="text-[10px] sm:text-xs font-sans text-gray-400 text-left leading-normal italic mt-1">
                   *Note: Whole body powder is often high in toxic Withaferin A due to leaf/stem content; KSM-66 is root-only and controlled.
                 </p>
               </div>
