@@ -7,10 +7,11 @@ import { AnimatedSection } from '../ui/AnimatedSection';
 const PureRootImage = () => (
   <div className="h-24 sm:h-36 md:h-40 lg:h-48 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-4 relative border border-white/10 group-hover:scale-[1.01] transition-transform duration-500 shadow-sm">
     <img 
-      src="/images/ashwagandha_plant_root.webp" 
+      src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600" 
       alt="Organic Ashwagandha Tuberous Root" 
       className="w-full h-full object-cover"
       loading="lazy"
+      referrerPolicy="no-referrer"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-[#0A192F]/80 via-transparent to-transparent pointer-events-none" />
     <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3 bg-[#FFE296] text-[var(--color-navy-deep)] font-sans font-bold text-[7px] sm:text-[9px] tracking-[0.12em] uppercase px-2 py-0.5 sm:py-1 rounded shadow-sm">
@@ -22,8 +23,8 @@ const PureRootImage = () => (
 const WholeBodyImage = () => (
   <div className="h-24 sm:h-36 md:h-40 lg:h-48 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-4 relative border border-gray-200/50 group-hover:scale-[1.01] transition-transform duration-500 shadow-sm">
     <img 
-      src="/images/ashwagandha_leaves.webp" 
-      alt="Ashwagandha Leaves and Berries" 
+      src="/images/ashwagandha_plant_root.webp" 
+      alt="Whole Ashwagandha Plant" 
       className="w-full h-full object-cover"
       loading="lazy"
     />
@@ -256,10 +257,11 @@ export const Comparison: React.FC = () => {
                       <div className="flex items-center gap-1 mt-1 justify-center flex-wrap sm:flex-nowrap">
                         <div className="w-4 h-4 rounded-full overflow-hidden border border-emerald-500/20 shadow-sm shrink-0">
                           <img 
-                            src="/images/ashwagandha_plant_root.webp" 
+                            src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&q=80&w=600" 
                             alt="Root" 
                             className="w-full h-full object-cover" 
                             loading="lazy"
+                            referrerPolicy="no-referrer"
                           />
                         </div>
                         <span className="text-[9px] sm:text-xs font-sans font-bold text-[var(--color-heading)] tracking-wide uppercase whitespace-nowrap">KSM-66</span>
@@ -281,8 +283,8 @@ export const Comparison: React.FC = () => {
                       <div className="flex items-center gap-1 mt-1 justify-center flex-wrap sm:flex-nowrap">
                         <div className="w-4 h-4 rounded-full overflow-hidden border border-red-500/20 shadow-sm shrink-0">
                           <img 
-                            src="/images/ashwagandha_leaves.webp" 
-                            alt="Leaves" 
+                            src="/images/ashwagandha_plant_root.webp" 
+                            alt="Whole Plant" 
                             className="w-full h-full object-cover" 
                             loading="lazy"
                           />
